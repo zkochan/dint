@@ -29,6 +29,11 @@ test('generate and verify', t => {
     .then(ok => {
       t.notOk(ok, 'big file differs')
 
+      return dint.check(path.join(__dirname, 'fixtures', '4'), dirIntegrity)
+    })
+    .then(ok => {
+      t.notOk(ok, 'file is missing')
+
       t.end()
     })
     .catch(t.end)
