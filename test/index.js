@@ -17,12 +17,17 @@ test('generate and verify', t => {
       return dint.check(dirname, dirIntegrity)
     })
     .then(ok => {
-      t.ok(ok)
+      t.ok(ok, 'no changes')
 
       return dint.check(path.join(__dirname, 'fixtures', '2'), dirIntegrity)
     })
     .then(ok => {
-      t.notOk(ok)
+      t.notOk(ok, 'small file differs')
+
+      return dint.check(path.join(__dirname, 'fixtures', '3'), dirIntegrity)
+    })
+    .then(ok => {
+      t.notOk(ok, 'big file differs')
 
       t.end()
     })

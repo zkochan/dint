@@ -51,6 +51,10 @@ function check (dirname, dirIntegrity) {
     const filename = path.join(dirname, f)
     if (fstat.size > MAX_BULK_SIZE) {
       return ssri.checkStream(fs.createReadStream(filename), fstat.integrity)
+        .catch(err => {
+          if (err.code === 'EINTEGRITY') return false
+          throw err
+        })
     }
 
     return fs.readFileAsync(filename).then(data => ssri.checkData(data, fstat.integrity))
