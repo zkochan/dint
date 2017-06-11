@@ -53,7 +53,7 @@ function check (dirname, dirIntegrity) {
       return ssri.checkStream(fs.createReadStream(filename), fstat.integrity)
     }
 
-    return fs.readFileAsync(filename).then(data => ssri.fromData(data, fstat.integrity))
+    return fs.readFileAsync(filename).then(data => ssri.checkData(data, fstat.integrity))
   }, {concurrency: 100})
 }
 
