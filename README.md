@@ -1,5 +1,7 @@
 # dint
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zkochan/dint.svg)](https://greenkeeper.io/)
+
 > Generate and verify directory integrity
 
 <!--@shields('npm', 'travis')-->
