@@ -6,7 +6,7 @@
 [![npm version](https://img.shields.io/npm/v/dint.svg)](https://www.npmjs.com/package/dint) [![Build Status](https://img.shields.io/travis/zkochan/dint/master.svg)](https://travis-ci.org/zkochan/dint)
 <!--/@-->
 
-This package is mostly a copy/paste from @zkat's [cadr](https://github.com/zkat/cadr) excluding the [cacache](https://github.com/zkat/cacache) usages.
+This package is mostly a copy/paste from [@zkat](https://github.com/zkat)'s [cadr](https://github.com/zkat/cadr) excluding the [cacache](https://github.com/zkat/cacache) usages.
 
 ## Installation
 

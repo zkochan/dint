@@ -6,6 +6,7 @@ dependencies:
 devDependencies:
   mos: 2.0.0-alpha.3
   mos-plugin-readme: 1.0.4
+  tape: 4.6.3
 packages:
   /@zkochan/async-replace/0.4.1:
     dependencies:
@@ -555,6 +556,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-2uRqnXj74lKSJYzB54CkHZXAN4I=
+  /for-each/0.3.2:
+    dependencies:
+      is-function: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha1-LEBFC5NI6X8oEyJZO6lnBLmr1NQ=
   /foreach/2.0.5:
     dev: true
     resolution:
@@ -594,6 +601,17 @@ packages:
     dev: true
     resolution:
       integrity: sha1-IRuvr0nlJbjNkyYNFKsTYVKz9Xo=
+  /glob/7.1.2:
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.3
+      minimatch: 3.0.4
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha1-wZyd+aAocC1nhhI4SmVSQExjbRU=
   /globals/9.18.0:
     dev: true
     resolution:
@@ -736,6 +754,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-754xOG8DGn8NZDr4L95QxFfvAMs=
+  /is-function/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-Es+5i2W1fdPRk6MSH19uL0N2ArU=
   /is-hexadecimal/1.0.0:
     dev: true
     resolution:
@@ -1184,6 +1206,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-NLymRKgPlPi6QaD50JhOr2Os8U0=
+  /object-inspect/1.2.2:
+    dev: true
+    resolution:
+      integrity: sha1-yCEV5PzIiK6hTWTCLk8X9qcNXlo=
   /object-keys/1.0.11:
     dev: true
     resolution:
@@ -1671,6 +1697,24 @@ packages:
     dev: true
     resolution:
       integrity: sha1-K7PqGb3J9SJSF7P5fL95hsxMbow=
+  /tape/4.6.3:
+    dependencies:
+      deep-equal: 1.0.1
+      defined: 1.0.0
+      for-each: 0.3.2
+      function-bind: 1.1.0
+      glob: 7.1.2
+      has: 1.0.1
+      inherits: 2.0.3
+      minimist: 1.2.0
+      object-inspect: 1.2.2
+      resolve: 1.1.7
+      resumer: 0.0.0
+      string.prototype.trim: 1.1.2
+      through: 2.3.8
+    dev: true
+    resolution:
+      integrity: sha1-Y353WB6ass4XV36b1M5PV1gG2LY=
   /the-argv/1.0.0:
     dev: true
     resolution:
@@ -1822,4 +1866,5 @@ specifiers:
   mos-plugin-readme: ^1.0.4
   p-every: ^1.0.2
   ssri: ^4.1.6
+  tape: ^4.6.3
 version: 3
