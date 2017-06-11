@@ -1,0 +1,54 @@
+{
+  "name": "dint",
+  "version": "0.0.0",
+  "description": "Generate and verify directory integrity",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "md": "mos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkochan/dint.git"
+  },
+  "keywords": [
+    "integrity",
+    "sri",
+    "directory",
+    "fs"
+  ],
+  "author": {
+    "name": "Zoltan Kochan",
+    "email": "zoltan.kochan@gmail.com",
+    "url": "http://kochan.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zkochan/dint/issues"
+  },
+  "homepage": "https://github.com/zkochan/dint#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "graceful-fs": "^4.1.11",
+    "p-every": "^1.0.2",
+    "ssri": "^4.1.6"
+  },
+  "devDependencies": {
+    "mos": "^2.0.0-alpha.3",
+    "mos-plugin-readme": "^1.0.4"
+  },
+  "mos": {
+    "plugins": [
+      "readme"
+    ],
+    "installation": {
+      "useShortAlias": true
+    }
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
