@@ -1,6 +1,6 @@
 {
   "name": "dint",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generate and verify directory integrity",
   "main": "index.js",
   "files": [
