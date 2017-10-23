@@ -34,7 +34,7 @@
     "bluebird": "^3.5.0",
     "graceful-fs": "^4.1.11",
     "p-every": "^1.0.2",
-    "ssri": "^4.1.6"
+    "ssri": "^5.0.0"
   },
   "devDependencies": {
     "mos": "^2.0.0-alpha.3",
