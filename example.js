@@ -1,9 +1,8 @@
 'use strict'
 const dint = require('.')
 
-dint.from('.')
+dint.from('test')
   .then(dirIntegrity => {
     console.log(dirIntegrity)
-    return dint.check('.', dirIntegrity)
   })
-  .then(ok => console.log(ok))
+  .catch(err => console.error(err))

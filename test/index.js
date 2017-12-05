@@ -8,8 +8,12 @@ test('generate and verify', t => {
 
   let dirIntegrity
   dint.from(dirname)
+    .then(_dirIntegrity => Promise.all(
+        Object.keys(_dirIntegrity).map(filename => _dirIntegrity[filename].generatingIntegrity.then(integrity => ({filename, integrity})))
+      )
+    )
     .then(_dirIntegrity => {
-      dirIntegrity = _dirIntegrity
+      dirIntegrity = _dirIntegrity.reduce((acc, file) => Object.assign(acc, {[file.filename]: {integrity: file.integrity}}), {})
 
       t.ok(dirIntegrity['foo.js'])
       t.ok(dirIntegrity['lib/bar.js'])

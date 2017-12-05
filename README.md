@@ -23,21 +23,33 @@ npm i -S dint
 
 Returns a mapping of file names to size and [Subresource Integrity](https://w3c.github.io/webappsec-subresource-integrity/) of each file.
 
-E.g.:
+Result example:
 
 ```js
 {
  'test/fixtures/4/lib/bar.js':
-   { integrity: 'sha512-1B0QjibzjRrYeSf79Hcy9T1t8KNt4cFpz//88geXTN6lDnUzMo+4o/MJDESUs884XdZ5EX4RLdzsJA8qeEV3lg==',
+   { generatingIntegrity: Promise<'sha512-1B0QjibzjRrYeSf79Hcy9T1t8KNt4cFpz//88geXTN6lDnUzMo+4o/MJDESUs884XdZ5EX4RLdzsJA8qeEV3lg=='>,
      size: 198 },
   'test/index.js':
-   { integrity: 'sha512-X6ypBcefaTDbDHHcR0J57E2dvDv6vAVi7tHAhfDImmDU8LBaYwdkdX+hVlqFdWNevJjRqsgZbXb/c+Ewq5t3tQ==',
+   { generatingIntegrity: Promise<'sha512-X6ypBcefaTDbDHHcR0J57E2dvDv6vAVi7tHAhfDImmDU8LBaYwdkdX+hVlqFdWNevJjRqsgZbXb/c+Ewq5t3tQ=='>,
      size: 939 } }
 ```
 
 ### `check(dirname, directoryIntegrity): Promise<Boolean>`
 
 Verifies directory integrity against a `directoryIntegrity` argument.
+
+E.g.:
+
+```js
+check('dirname', {
+ 'test/fixtures/4/lib/bar.js':
+   { integrity: 'sha512-1B0QjibzjRrYeSf79Hcy9T1t8KNt4cFpz//88geXTN6lDnUzMo+4o/MJDESUs884XdZ5EX4RLdzsJA8qeEV3lg==',
+     size: 198 },
+  'test/index.js':
+   { integrity: 'sha512-X6ypBcefaTDbDHHcR0J57E2dvDv6vAVi7tHAhfDImmDU8LBaYwdkdX+hVlqFdWNevJjRqsgZbXb/c+Ewq5t3tQ==',
+     size: 939 } })
+```
 
 ## License
 
