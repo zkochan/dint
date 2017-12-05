@@ -1,6 +1,6 @@
 'use strict'
 const test = require('tape')
-const dint = require('..')
+const dint = require('dint')
 const path = require('path')
 
 test('generate and verify', t => {

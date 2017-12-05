@@ -7,7 +7,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "node test",
+    "test": "preview && node test",
     "md": "mos"
   },
   "repository": {
@@ -39,6 +39,7 @@
   "devDependencies": {
     "mos": "^2.0.0-alpha.3",
     "mos-plugin-readme": "^1.0.4",
+    "package-preview": "^1.0.1",
     "tape": "^4.6.3"
   },
   "mos": {
