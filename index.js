@@ -23,7 +23,7 @@ function _generateFrom (file, fname) {
             Object.assign(acc, info)
           }
           return acc
-        }, {[fname]: Object.assign({isDir: true}, stat)})
+        }, {})
       })
     } else if (!stat.isFile()) {
       // ignored. We don't do things like symlinks rn
@@ -46,7 +46,6 @@ function check (dirname, dirIntegrity) {
   dirname = path.resolve(dirname)
   return pEvery(Object.keys(dirIntegrity), f => {
     const fstat = dirIntegrity[f]
-    if (fstat.isDir) return true
 
     const filename = path.join(dirname, f)
     if (fstat.size > MAX_BULK_SIZE) {
