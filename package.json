@@ -31,9 +31,10 @@
   },
   "homepage": "https://github.com/zkochan/dint#readme",
   "dependencies": {
-    "bluebird": "^3.5.0",
     "graceful-fs": "^4.1.11",
+    "mz": "^2.7.0",
     "p-every": "^1.0.2",
+    "p-limit": "^1.1.0",
     "ssri": "^5.0.0"
   },
   "devDependencies": {
