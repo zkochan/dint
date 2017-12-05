@@ -21,7 +21,7 @@ npm i -S dint
 
 ### `from(dirname): Promise<DirectoryIntegrity>`
 
-Returns a mapping of file names to file stats info and [Subresource Integrity](https://w3c.github.io/webappsec-subresource-integrity/) of each file.
+Returns a mapping of file names to size and [Subresource Integrity](https://w3c.github.io/webappsec-subresource-integrity/) of each file.
 
 E.g.:
 
@@ -29,36 +29,10 @@ E.g.:
 {
  'test/fixtures/4/lib/bar.js':
    { integrity: 'sha512-1B0QjibzjRrYeSf79Hcy9T1t8KNt4cFpz//88geXTN6lDnUzMo+4o/MJDESUs884XdZ5EX4RLdzsJA8qeEV3lg==',
-     dev: 2052,
-     mode: 33204,
-     nlink: 1,
-     uid: 1000,
-     gid: 1000,
-     rdev: 0,
-     blksize: 4096,
-     ino: 5952246,
-     size: 198,
-     blocks: 8,
-     atime: 2017-06-11T23:13:53.802Z,
-     mtime: 2017-06-11T23:13:07.903Z,
-     ctime: 2017-06-11T23:13:07.903Z,
-     birthtime: 2017-06-11T23:13:07.903Z },
+     size: 198 },
   'test/index.js':
    { integrity: 'sha512-X6ypBcefaTDbDHHcR0J57E2dvDv6vAVi7tHAhfDImmDU8LBaYwdkdX+hVlqFdWNevJjRqsgZbXb/c+Ewq5t3tQ==',
-     dev: 2052,
-     mode: 33204,
-     nlink: 1,
-     uid: 1000,
-     gid: 1000,
-     rdev: 0,
-     blksize: 4096,
-     ino: 5923209,
-     size: 939,
-     blocks: 8,
-     atime: 2017-06-11T23:13:53.610Z,
-     mtime: 2017-06-11T23:13:51.994Z,
-     ctime: 2017-06-11T23:13:51.994Z,
-     birthtime: 2017-06-11T23:13:51.994Z } }
+     size: 939 } }
 ```
 
 ### `check(dirname, directoryIntegrity): Promise<Boolean>`

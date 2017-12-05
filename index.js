@@ -30,10 +30,10 @@ function _generateFrom (file, fname) {
     } else if (stat.size < MAX_BULK_SIZE) {
       return fs.readFileAsync(file)
         .then(data => ssri.fromData(data))
-        .then(integrity => ({[fname]: Object.assign({integrity: integrity.toString()}, stat)}))
+        .then(integrity => ({[fname]: {integrity: integrity.toString(), size: stat.size}}))
     } else {
       return ssri.fromStream(fs.createReadStream(file))
-        .then(integrity => ({[fname]: Object.assign({integrity: integrity.toString()}, stat)}))
+        .then(integrity => ({[fname]: {integrity: integrity.toString(), size: stat.size}}))
     }
   }).catch({code: 'ENOENT'}, err => {
     if (err.code !== 'ENOENT') {
