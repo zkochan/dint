@@ -28,7 +28,11 @@ function _retrieveFileIntegrities (rootDir, currDir, index) {
           const relativePath = path.relative(rootDir, fullPath)
           index[relativePath] = {
             size: stat.size,
-            generatingIntegrity: limit(() => ssri.fromStream(fs.createReadStream(fullPath)))
+            generatingIntegrity: limit(() => {
+              return stat.size < MAX_BULK_SIZE
+                     ? fs.readFile(fullPath).then(ssri.fromData)
+                     : ssri.fromStream(fs.createReadStream(fullPath))
+            })
           }
         }
       })
