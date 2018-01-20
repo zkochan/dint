@@ -11,52 +11,34 @@ const limit = pLimit(20)
 const MAX_BULK_SIZE = 1 * 1024 * 1024 // 1MB
 
 function generateFrom (dirname) {
-  return _generateFrom(path.resolve(dirname), '')
+  return _retrieveFileIntegrities(dirname, dirname, {})
 }
 
-function _generateFrom (file, fname) {
-  return fs.stat(file)
-    .then(stat => {
-      if (stat.isDirectory()) {
-        return fs.readdir(file)
-          .then(files => Promise.all(
-              files.map(f => limit(() => _generateFrom(path.join(file, f), path.join(fname, f))))
-            )
-          )
-          .then(files => {
-            return files.reduce((acc, info) => {
-              if (info) {
-                Object.assign(acc, info)
-              }
-              return acc
-            }, {})
-          })
-      }
-      if (!stat.isFile()) {
-        // ignored. We don't do things like symlinks rn
-        return
-      }
-      if (stat.size < MAX_BULK_SIZE) {
-        return {
-          [fname]: {
+function _retrieveFileIntegrities (rootDir, currDir, index) {
+  return fs.readdir(currDir)
+  .then((files) => {
+    return Promise.all(files.map((file) => {
+      const fullPath = path.join(currDir, file)
+      return fs.stat(fullPath)
+      .then((stat) => {
+        if (stat.isDirectory()) {
+          return _retrieveFileIntegrities(rootDir, fullPath, index)
+        }
+        if (stat.isFile()) {
+          const relativePath = path.relative(rootDir, fullPath)
+          index[relativePath] = {
             size: stat.size,
-            generatingIntegrity: fs.readFile(file)
-              .then(data => ssri.fromData(data))
+            generatingIntegrity: limit(() => {
+              return stat.size < MAX_BULK_SIZE
+                     ? fs.readFile(fullPath).then(ssri.fromData)
+                     : ssri.fromStream(fs.createReadStream(fullPath))
+            })
           }
         }
-      }
-      return {
-        [fname]: {
-          size: stat.size,
-          generatingIntegrity: ssri.fromStream(fs.createReadStream(file))
-        }
-      }
-    })
-    .catch({code: 'ENOENT'}, err => {
-      if (err.code !== 'ENOENT') {
-        throw err
-      }
-    })
+      })
+    }))
+  })
+  .then(() => index)
 }
 
 function check (dirname, dirIntegrity) {
