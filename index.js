@@ -39,6 +39,12 @@ function _retrieveFileIntegrities (rootDir, currDir, index) {
     }))
   })
   .then(() => index)
+  .catch(err => {
+    if (err.code !== 'ENOENT') {
+      throw err
+    }
+    return index
+  })
 }
 
 function check (dirname, dirIntegrity) {
