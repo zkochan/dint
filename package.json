@@ -34,7 +34,7 @@
     "graceful-fs": "^4.1.11",
     "mz": "^2.7.0",
     "p-every": "^1.0.2",
-    "p-limit": "^1.1.0",
+    "p-limit": "^2.0.0",
     "ssri": "^6.0.0"
   },
   "devDependencies": {
