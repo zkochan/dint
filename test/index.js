@@ -38,6 +38,11 @@ test('generate and verify', t => {
     .then(ok => {
       t.notOk(ok, 'file is missing')
 
+      return dint.check(path.join(__dirname, 'fixtures', '3'), {'foo.js': {}})
+    })
+    .then(ok => {
+      t.notOk(ok, 'integrity is missing')
+
       t.end()
     })
     .catch(t.end)

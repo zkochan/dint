@@ -52,6 +52,10 @@ function check (dirname, dirIntegrity) {
   return pEvery(Object.keys(dirIntegrity), f => {
     const fstat = dirIntegrity[f]
 
+    // TODO: return something else to distinguish an integrity mismatch from
+    // a missing integrity
+    if (!fstat.integrity) return false
+
     const filename = path.join(dirname, f)
     if (fstat.size > MAX_BULK_SIZE) {
       return ssri.checkStream(fs.createReadStream(filename), fstat.integrity)
