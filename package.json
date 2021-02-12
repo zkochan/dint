@@ -31,8 +31,6 @@
   },
   "homepage": "https://github.com/zkochan/dint#readme",
   "dependencies": {
-    "graceful-fs": "^4.2.3",
-    "mz": "^2.7.0",
     "p-every": "^2.0.0",
     "p-limit": "^3.0.0",
     "ssri": "^8.0.0"

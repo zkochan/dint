@@ -1,6 +1,6 @@
 'use strict'
 
-const fs = require('mz/fs')
+const fs = require('fs')
 const ssri = require('ssri')
 const path = require('path')
 const pEvery = require('p-every')
@@ -16,10 +16,10 @@ function generateFrom (dirname) {
 
 async function _retrieveFileIntegrities (rootDir, currDir, index) {
   try {
-    const files = await fs.readdir(currDir)
+    const files = await fs.promises.readdir(currDir)
     await Promise.all(files.map(async (file) => {
       const fullPath = path.join(currDir, file)
-      const stat = await fs.stat(fullPath)
+      const stat = await fs.promises.stat(fullPath)
       if (stat.isDirectory()) {
         return _retrieveFileIntegrities(rootDir, fullPath, index)
       }
@@ -29,7 +29,7 @@ async function _retrieveFileIntegrities (rootDir, currDir, index) {
           size: stat.size,
           generatingIntegrity: limit(() => {
             return stat.size < MAX_BULK_SIZE
-              ? fs.readFile(fullPath).then(ssri.fromData)
+              ? fs.promises.readFile(fullPath).then(ssri.fromData)
               : ssri.fromStream(fs.createReadStream(fullPath))
           })
         }
@@ -64,7 +64,7 @@ function check (dirname, dirIntegrity) {
     }
 
     try {
-      const data = await fs.readFile(filename)
+      const data = await fs.promises.readFile(filename)
       return ssri.checkData(data, fstat.integrity)
     } catch (err) {
       if (err.code === 'EINTEGRITY' || err.code === 'ENOENT') return false
