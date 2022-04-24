@@ -6,13 +6,13 @@ specifiers:
   p-every: ^2.0.0
   p-limit: ^3.0.0
   package-preview: ^4.0.0
-  ssri: ^8.0.0
+  ssri: ^9.0.0
   tape: ^5.0.0
 
 dependencies:
   p-every: 2.0.0
   p-limit: 3.0.0
-  ssri: 8.0.0
+  ssri: 9.0.0
 
 devDependencies:
   mos: 2.0.0-alpha.3
@@ -2600,9 +2600,9 @@ packages:
       figgy-pudding: 3.5.2
     dev: true
 
-  /ssri/8.0.0:
-    resolution: {integrity: sha512-aq/pz989nxVYwn16Tsbj1TqFpD5LLrQxHf5zaHuieFV+R0Bbr4y8qUsOA45hXT/N4/9UNXTarBjnjVmjSOVaAA==}
-    engines: {node: '>= 8'}
+  /ssri/9.0.0:
+    resolution: {integrity: sha512-Y1Z6J8UYnexKFN1R/hxUaYoY2LVdKEzziPmVAFKiKX8fiwvCJTVzn/xYE9TEWod5OVyNfIHHuVfIEuBClL/uJQ==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     dependencies:
       minipass: 3.1.1
     dev: false

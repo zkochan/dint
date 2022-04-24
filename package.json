@@ -33,7 +33,7 @@
   "dependencies": {
     "p-every": "^2.0.0",
     "p-limit": "^3.0.0",
-    "ssri": "^8.0.0"
+    "ssri": "^9.0.0"
   },
   "devDependencies": {
     "mos": "^2.0.0-alpha.3",
